@@ -1,0 +1,108 @@
+<mvc:View
+    controllerName="emp.employeedetails.controller.sapui_1st"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page id="page" title="{i18n>title}">
+
+        <content>
+
+            <VBox class="sapUiSmallMargin">
+
+                <Title
+                    text="Employee Details"
+                    level="H2"
+                />
+
+                <Table items="{/employees}">
+
+                    <columns>
+
+                        <Column>
+                            <Text text="ID"/>
+                        </Column>
+
+                        <Column>
+                            <Text text="Name"/>
+                        </Column>
+
+                        <Column>
+                            <Text text="Age"/>
+                        </Column>
+
+                        <Column hAlign="End">
+                            <Text text="Salary"/>
+                        </Column>
+
+                    </columns>
+
+                    <items>
+
+                        <ColumnListItem>
+
+                            <cells>
+
+                                <Text text="{id}"/>
+
+                                <Text text="{name}"/>
+
+                                <Text text="{age}"/>
+
+                                <ObjectNumber
+                                    number="{salary}"
+                                    unit="INR"
+                                />
+
+                            </cells>
+
+                        </ColumnListItem>
+
+                    </items>
+
+                </Table>
+
+                <Panel
+                    headerText="Salary Summary"
+                    class="sapUiMediumMarginTop">
+
+                    <HBox
+                        justifyContent="SpaceBetween"
+                        alignItems="Center"
+                        class="sapUiSmallMargin">
+
+                        <Title
+                            text="Total Salary"
+                            level="H3"
+                        />
+
+                        <ObjectNumber
+                            id="totalSalary"
+                            number="0"
+                            unit="INR"
+                            emphasized="true"
+                            state="Success"
+                        />
+
+                    </HBox>
+
+                </Panel>
+
+            </VBox>
+
+        </content>
+
+        <List
+            headerText="Products"
+            items="{invoice>/Products}">
+
+            <StandardListItem
+                title="{invoice>ProductName}"
+                description="{invoice>QuantityPerUnit}"
+                info="{invoice>UnitPrice}"
+            />
+
+        </List>
+
+    </Page>
+
+</mvc:View>
